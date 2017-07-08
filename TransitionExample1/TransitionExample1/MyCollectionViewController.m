@@ -40,10 +40,14 @@
     [cell.imageView setImage:[UIImage imageNamed:[NSString stringWithFormat:@"sa%ld.jpg", (long)indexPath.item]]];
     
     NSUInteger row = indexPath.row;
-    cell.view1.backgroundColor = [UIColor colorWithHue:((indexPath.item * 4) / 16.0f) saturation:1.0 brightness:1.0 alpha:1.0];
-    cell.view2.backgroundColor = ((row % 4) > 0) ? [UIColor colorWithHue:((indexPath.item * 4 + 1) / 16.0f) saturation:1.0 brightness:1.0 alpha:1.0] : [UIColor clearColor];
-    cell.view3.backgroundColor = ((row % 4) > 1) ? [UIColor colorWithHue:((indexPath.item * 4 + 2) / 16.0f) saturation:1.0 brightness:1.0 alpha:1.0] : [UIColor clearColor];
-    cell.view4.backgroundColor = ((row % 4) > 2) ? [UIColor colorWithHue:((indexPath.item * 4 + 3) / 16.0f) saturation:1.0 brightness:1.0 alpha:1.0] : [UIColor clearColor];
+//    cell.view1.backgroundColor = [UIColor colorWithHue:((indexPath.item * 4) / 16.0f) saturation:1.0 brightness:1.0 alpha:1.0];
+//    cell.view2.backgroundColor = ((row % 4) > 0) ? [UIColor colorWithHue:((indexPath.item * 4 + 1) / 16.0f) saturation:1.0 brightness:1.0 alpha:1.0] : [UIColor clearColor];
+//    cell.view3.backgroundColor = ((row % 4) > 1) ? [UIColor colorWithHue:((indexPath.item * 4 + 2) / 16.0f) saturation:1.0 brightness:1.0 alpha:1.0] : [UIColor clearColor];
+//    cell.view4.backgroundColor = ((row % 4) > 2) ? [UIColor colorWithHue:((indexPath.item * 4 + 3) / 16.0f) saturation:1.0 brightness:1.0 alpha:1.0] : [UIColor clearColor];
+    cell.view1.backgroundColor = [UIColor colorWithHue:((indexPath.item * 4)     / 16.0f) saturation:1.0 brightness:1.0 alpha:1.0];
+    cell.view2.backgroundColor = [UIColor colorWithHue:((indexPath.item * 4 + 1) / 16.0f) saturation:1.0 brightness:1.0 alpha:1.0];
+    cell.view3.backgroundColor = [UIColor colorWithHue:((indexPath.item * 4 + 2) / 16.0f) saturation:1.0 brightness:1.0 alpha:1.0];
+    cell.view4.backgroundColor = [UIColor colorWithHue:((indexPath.item * 4 + 3) / 16.0f) saturation:1.0 brightness:1.0 alpha:1.0];
     return cell;
 }
 

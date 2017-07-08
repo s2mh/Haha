@@ -41,11 +41,21 @@
                      animations:^{
                          CGRect headerFrame = CGRectMake(0.0f, 0.0f, toVC.tableView.frame.size.width, toVC.tableView.frame.size.width * 0.75);
                          imageView.frame = [contrainer convertRect:headerFrame fromView:toVC.view];
-                         
+                         __block CGRect lastFrame;
+                         UITableView *tableView = toVC.tableView;
                          [imageViews enumerateObjectsUsingBlock:^(UIImageView * _Nonnull imageView, NSUInteger idx, BOOL * _Nonnull stop) {
                              NSIndexPath *indexPath = [NSIndexPath indexPathForRow:idx inSection:0];
-                             UITableViewCell *cell = [toVC.tableView cellForRowAtIndexPath:indexPath];
-                             imageView.frame = [cell.imageView convertRect:cell.imageView.bounds toView:contrainer];
+                             UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+                             if (cell) {
+                                 lastFrame = [cell.imageView convertRect:cell.imageView.bounds toView:contrainer];
+                                 imageView.frame = lastFrame;
+                             } else {
+                                 NSIndexPath *frontIndexPath = [NSIndexPath indexPathForRow:(idx - 1) inSection:0];
+                                 CGFloat frontCellHeight = [toVC.tableView.delegate tableView:tableView heightForRowAtIndexPath:frontIndexPath];
+                                 CGFloat cellHeight = [toVC.tableView.delegate tableView:tableView heightForRowAtIndexPath:indexPath];
+                                 imageView.frame = CGRectOffset(lastFrame, 0.0f, (cellHeight + frontCellHeight) * 0.5);
+                             }
+                             NSLog(@"%@", NSStringFromCGRect([cell.imageView convertRect:cell.imageView.bounds toView:contrainer]));
                          }];
                      }
                      completion:^(BOOL finished) {

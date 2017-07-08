@@ -73,7 +73,7 @@
     CGFloat scaleRange = 80.0f;
     CGFloat centerXDelta = fabs(collectionViewCenterX - itemCenterX);
     if (centerXDelta < scaleRange) {
-        CGFloat scale = 1.0f + (1.0f - centerXDelta / scaleRange) * 0.5f;
+        CGFloat scale = 1.0f + (1.0f - centerXDelta / scaleRange) * 0.3f;
         attributes.size = CGSizeMake(ceil(attributes.size.width * scale), ceil(attributes.size.height * scale));
     }
 }
