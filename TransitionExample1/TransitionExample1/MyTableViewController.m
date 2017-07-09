@@ -14,7 +14,6 @@
     [super viewDidLoad];
     
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"UITableViewCell"];
-//    self.tableView.rowHeight = 90.0f;
     UIImageView *headerView = [[UIImageView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.tableView.frame.size.width, self.tableView.frame.size.width * 0.75)];
     headerView.image = self.header;
     self.tableView.tableHeaderView = headerView;
@@ -40,21 +39,11 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 25.0f * (indexPath.row % 4) + 80.0f;
+    return 25.0f * ((indexPath.row + self.fakeRandonFactor) % 4) + 80.0f;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [self dismissViewControllerAnimated:YES completion:nil];
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    NSLog(@"%s", __FUNCTION__);
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    NSLog(@"%s", __FUNCTION__);
 }
 
 @end

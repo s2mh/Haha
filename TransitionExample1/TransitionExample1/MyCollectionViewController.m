@@ -39,7 +39,7 @@
     MyCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"MyCollectionViewCell" forIndexPath:indexPath];
     [cell.imageView setImage:[UIImage imageNamed:[NSString stringWithFormat:@"sa%ld.jpg", (long)indexPath.item]]];
     
-    NSUInteger row = indexPath.row;
+//    NSUInteger row = indexPath.row;
 //    cell.view1.backgroundColor = [UIColor colorWithHue:((indexPath.item * 4) / 16.0f) saturation:1.0 brightness:1.0 alpha:1.0];
 //    cell.view2.backgroundColor = ((row % 4) > 0) ? [UIColor colorWithHue:((indexPath.item * 4 + 1) / 16.0f) saturation:1.0 brightness:1.0 alpha:1.0] : [UIColor clearColor];
 //    cell.view3.backgroundColor = ((row % 4) > 1) ? [UIColor colorWithHue:((indexPath.item * 4 + 2) / 16.0f) saturation:1.0 brightness:1.0 alpha:1.0] : [UIColor clearColor];
@@ -72,6 +72,7 @@
     MyTableViewController *vc = [[MyTableViewController alloc] initWithStyle:UITableViewStylePlain];
     vc.header = header;
     vc.images = images;
+    vc.fakeRandonFactor = indexPath.row;
     
     MyPresentTransition *transition = [MyPresentTransition new];
     transition.headerView = cell.imageView;

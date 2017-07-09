@@ -55,7 +55,6 @@
                                  CGFloat cellHeight = [toVC.tableView.delegate tableView:tableView heightForRowAtIndexPath:indexPath];
                                  imageView.frame = CGRectOffset(lastFrame, 0.0f, (cellHeight + frontCellHeight) * 0.5);
                              }
-                             NSLog(@"%@", NSStringFromCGRect([cell.imageView convertRect:cell.imageView.bounds toView:contrainer]));
                          }];
                      }
                      completion:^(BOOL finished) {

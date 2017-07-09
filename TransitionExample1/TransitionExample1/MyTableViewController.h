@@ -13,4 +13,6 @@
 @property (nonatomic, strong) UIImage *header;
 @property (nonatomic, copy) NSArray<UIImage *> *images;
 
+@property (nonatomic) NSUInteger fakeRandonFactor;
+
 @end
